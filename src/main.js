@@ -9,7 +9,7 @@ $(`.add`).on('click', function () {
         url = url
     }
 
-    let urlx = url.replace("http://", '').replace("https://", '').replace("www.", '').replace(' ', '').trim();
+    let urlx = url.replace("http://", '').replace("https://", '').replace("www.", '').replace(' ', '').trim().replace(/\/.*/, '');
     if (urlx !== '') {
         let obj = {
             text: urlx,
