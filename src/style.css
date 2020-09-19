@@ -57,14 +57,29 @@ body {
 
 @media(min-width:500px) {
     .index-main {
-        max-width: 800px;
+        max-width: 830px;
         margin: 0 auto;
     }
+
+    .main-list {
+        margin-right: 20px;
+    }
+
+    .index-main>ul {
+        width: 850px;
+    }
+
 }
 
 .index-main>ul {
     display: flex;
     flex-wrap: wrap;
+}
+
+@media(max-width:500px) {
+    .index-main>ul {
+        justify-content: space-between;
+    }
 }
 
 .main-list {

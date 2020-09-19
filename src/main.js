@@ -9,15 +9,16 @@ $(`.add`).on('click', function () {
         url = url
     }
 
-    let urlx = url.replace("http://", '').replace("https://", '').replace("www.", '').replace(/\/.*/, '').replace(' ', '').trim();
-    let obj = {
-        text: urlx,
-        url: url
+    let urlx = url.replace("http://", '').replace("https://", '').replace("www.", '').replace(' ', '').trim();
+    if (urlx !== '') {
+        let obj = {
+            text: urlx,
+            url: url
+        }
+        hashmap.push(obj)
+        rander(hashmap)
     }
-    hashmap.push(obj)
-    rander(hashmap)
 })
-
 //使用hashmap表来渲染整个页面
 function rander(hashmap) {
     $(".index-main-ul").find('.main-lists').remove()
@@ -48,3 +49,20 @@ window.onbeforeunload = function () {
     let x = JSON.stringify(hashmap)
     localStorage.setItem("x", x)
 }
+
+document.addEventListener('keypress', keypress)
+
+function keypress(e) {
+    for (let i = 0; i < hashmap.length; i++) {
+        if (e.key.toUpperCase() === (hashmap[i].text)[0].toUpperCase()) {
+            window.open(hashmap[i].url)
+            break;
+        }
+    }
+}
+$('.index-searchText').focus(function () {
+    document.removeEventListener('keypress', keypress)
+})
+$('.index-searchText').blur(function () {
+    document.addEventListener('keypress', keypress)
+})
