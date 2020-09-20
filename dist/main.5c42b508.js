@@ -178,9 +178,19 @@ function keypress(e) {
 
 $('.index-searchText').focus(function () {
   document.removeEventListener('keypress', keypress);
+  document.removeEventListener('keyup', keyup);
 });
 $('.index-searchText').blur(function () {
   document.addEventListener('keypress', keypress);
+  document.addEventListener('keyup', keyup);
 });
+document.addEventListener('keyup', keyup);
+
+function keyup(e) {
+  if (e.key === '+' || e.key === '=') {
+    var click = new Event('click');
+    document.querySelector(".add").dispatchEvent(click);
+  }
+}
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.4f29b7a6.js.map
+//# sourceMappingURL=/main.5c42b508.js.map
