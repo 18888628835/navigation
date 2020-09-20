@@ -1,1 +1,8 @@
-{}
+{
+    "name": "Navigation",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/18888628835/navigation.git",
+    "author": "qiuyanxi <2903358870@qq.com>",
+    "license": "MIT"
+}
