@@ -62,7 +62,18 @@ function keypress(e) {
 }
 $('.index-searchText').focus(function () {
     document.removeEventListener('keypress', keypress)
+    document.removeEventListener('keyup', keyup)
 })
 $('.index-searchText').blur(function () {
     document.addEventListener('keypress', keypress)
+    document.addEventListener('keyup', keyup)
+
 })
+document.addEventListener('keyup', keyup)
+
+function keyup(e) {
+    if (e.key === '+' || e.key === '=') {
+        let click = new Event('click')
+        document.querySelector(`.add`).dispatchEvent(click)
+    }
+}
